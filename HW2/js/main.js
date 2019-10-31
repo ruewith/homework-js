@@ -24,4 +24,63 @@ for (var i = 1; i <= 100; i++) {
     }
 }
 
-// Задача №3
+//Задача №3
+let plateQty = parseInt(prompt("Количество тарелок: ", ""));
+
+let cleanserQty = parseFloat(prompt("Количество моющего средства: ", ""));
+
+let clearPlate = 0;
+
+do {
+    ++clearPlate;
+    console.log("Осталось моющего средства = " + cleanserQty);
+    plateQty--;
+    cleanserQty -= .5;
+} while (cleanserQty > 0 && plateQty > 0);
+
+if (plateQty === 0 && cleanserQty === 0) {
+    console.log("Все тарелки вымыты и все средство закончилось, чистых тарелок: " + clearPlate);
+} else if (cleanserQty === 0) {
+    console.log("Моющее средство закончилось,тарелок осталось:" + plateQty +", чистых тарелок: " + clearPlate);
+} else if (plateQty === 0){
+    console.log("Тарелки кончились, моющего средства осталось: " + cleanserQty + ", чистых тарелок: " + clearPlate);
+}
+
+//Задача № 4
+
+let arr1 = [7, 4, 9, 11, 19];
+
+let arr2 = [5, 7, 1, 4, 22];
+
+let mean1 = 0;
+let mean2 = 0;
+
+let sum1 = 0;
+let sum2 = 0;
+
+for (var i = 0; i < arr1.length; i++) {
+    sum1 += arr1[i];
+}
+for (var i = 0; i < arr2.length; i++) {
+    sum2 += arr2[i];
+}
+
+mean1 = sum1/arr1.length;
+mean2 = sum2/arr2.length;
+
+if (mean1>mean2) {
+    console.log("Среднее арифметическое первого массива больше");
+} else if (mean1<mean2) {
+    console.log("Среднее арифметическое второго массива больше");
+} else { console.log("Средние арифметические массивов равны"); }
+
+//Задача № 5.3
+
+let qty = parseInt(prompt("Количесво", ""));
+
+let str = "";
+
+for (var i = 0; i < qty; i++) {
+    str += "#";
+    console.log(str);
+}
