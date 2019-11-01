@@ -74,6 +74,34 @@ if (mean1>mean2) {
     console.log("Среднее арифметическое второго массива больше");
 } else { console.log("Средние арифметические массивов равны"); }
 
+// Задача №5.1
+
+let numArr = parseInt(prompt("Количесво элементов массива: ", 1));
+let stepArr = parseInt(prompt("Шаг массива: ", 1));
+
+function makeReversArr(numArr, stepArк){
+    let arr = [];
+    let step = stepArr;
+    for (var i = 0; i < numArr; i++) {
+        arr[i]= step;
+        step += stepArr;
+    }
+    for (var i = arr.length-1; i >= 0; i--) {
+        console.log(arr[i]);
+    }
+}
+makeReversArr(numArr, stepArr);
+
+// Задача №5.2
+
+n=1;
+
+for (var i = 1; i <=20; i++) {
+    n+=n;
+    console.log(n);
+}
+
+
 //Задача № 5.3
 
 let qty = parseInt(prompt("Количесво", ""));
