@@ -12,7 +12,7 @@ for (let i = 0; i < arr.length ; i++) {
 
 //Задача №2
 
-for (var i = 1; i <= 100; i++) {
+for (let i = 1; i <= 100; i++) {
     if (i%3 == 0 && i%5 == 0) {
         console.log("ThreeFive")
     } else if(i%3 == 0) {
@@ -58,10 +58,10 @@ let mean2 = 0;
 let sum1 = 0;
 let sum2 = 0;
 
-for (var i = 0; i < arr1.length; i++) {
+for (let i = 0; i < arr1.length; i++) {
     sum1 += arr1[i];
 }
-for (var i = 0; i < arr2.length; i++) {
+for (let i = 0; i < arr2.length; i++) {
     sum2 += arr2[i];
 }
 
@@ -81,22 +81,24 @@ let stepArr = parseInt(prompt("Шаг массива: ", 1));
 
 function makeReversArr(numArr, stepArк){
     let arr = [];
+    let revers = [];
     let step = stepArr;
-    for (var i = 0; i < numArr; i++) {
+    for (let i = 0; i < numArr; i++) {
         arr[i]= step;
         step += stepArr;
     }
-    for (var i = arr.length-1; i >= 0; i--) {
-        console.log(arr[i]);
+    for (let i = arr.length-1, j=0; i >= 0; i--,j++) {
+        revers[j] = arr[i];
     }
+    return revers;
 }
-makeReversArr(numArr, stepArr);
+console.log(makeReversArr(numArr, stepArr));
 
 // Задача №5.2
 
 n=1;
 
-for (var i = 1; i <=20; i++) {
+for (let i = 1; i <=20; i++) {
     n+=n;
     console.log(n);
 }
@@ -108,7 +110,7 @@ let qty = parseInt(prompt("Количесво", ""));
 
 let str = "";
 
-for (var i = 0; i < qty; i++) {
+for (let i = 0; i < qty; i++) {
     str += "#";
     console.log(str);
 }
