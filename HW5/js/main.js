@@ -34,10 +34,10 @@ let books = [
 
 //Задача №1
 function getGoods(object, from, to) {
-  let result = [];
+  let result = {};
   for (let item in object) {
     if (object[item].price >= from && object[item].price <= to) {
-      result.push(object[item].title);
+      result[item] = object[item];
     }
   }
   return result;

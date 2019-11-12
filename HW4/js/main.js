@@ -27,12 +27,15 @@ function isPoly(string) {
     strMod = string.toLowerCase().replace(/\s/g, "");
     strRev = strMod.split("").reverse().join("");
     if (strMod === strRev) {
-        return "Строка полиндром";
+        return true;
     }
-    return "Строка не полиндром";
+    return false;
 }
 
-console.log(isPoly(string));
+let result = isPoly(string) ? "Строка полиндром" : "Строка не полиндром";
+
+console.log(result);
+
 
 // Задача №5
 
@@ -44,9 +47,9 @@ function getMaxPoly(string) {
       let modStr = substr.toLowerCase().replace(/\s+/g, "");
       let strRev = modStr.split('').reverse().join('');
       if (modStr === strRev) {
-          return "Самый длинный полиндром: " + substr; 
+          return substr; 
         }
       }
     }
 
-console.log(getMaxPoly(string2));
+console.log("Самый длинный полиндром в строке:" + getMaxPoly(string2));
