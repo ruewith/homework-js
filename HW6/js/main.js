@@ -1,5 +1,30 @@
-let goods = [
+let articles = [{
+        id: 1,
+        title: "JS",
+        text: "Статья про JS",
+        author: "Александр"
+    },
     {
+        id: 2,
+        title: "PHP",
+        text: "Статья про PHP",
+        author: "Виталий"
+    },
+    {
+        id: 3,
+        title: "Базы Данных",
+        text: "Статья про Базы Данных",
+        author: "Евгения"
+    },
+    {
+        id: 4,
+        title: "HTML",
+        text: "Статья про HTML",
+        author: "Виталий"
+    }
+];
+
+let goods = [{
         title: "Пианино",
         price: 3000,
         count: 25
@@ -27,38 +52,34 @@ let goods = [
 ];
 
 function genTable(arr) {
-
-let div = document.createElement("div");
-let table = document.createElement("table");
-table.border = 1;
-table.cellPadding = 10;
-let caption = table.createCaption();
-caption.style = "font-size: 24px";
-caption.innerText = "Заголовок таблицы";
-for (let i = 0; i < arr.length; i++) 
-{
-let row = table.insertRow(i);
-let arrValue = Object.values(arr[i]);
-let arrKey = Object.getOwnPropertyNames(arr[i]);
-for (n = 0; n < arrValue.length; n++)
-{
-  if (i == 0) {
-  let cell = row.insertCell(n);
-  cell.innerText = arrKey[n].toUpperCase();
-  console.log(arrKey[n]);
-  row.append(cell);
-  } else 
-  {
-  let cell = row.insertCell(n);
-  cell.innerText = arrValue[n];
-  console.log(arrValue[n]);
-  row.append(cell);
-  }
- }
- 
+    let div = document.createElement("div");
+    let table = document.createElement("table");
+    table.border = 1;
+    table.cellPadding = 10;
+    let caption = table.createCaption();
+    caption.style = "font-size: 24px";
+    caption.innerText = "Заголовок таблицы";
+    let row = table.insertRow();
+    for (let item in arr[0]) {
+        let cell = document.createElement("th");
+        cell.innerText = item.toUpperCase();
+        row.append(cell);
+    }
+    for (let i = 0; i < arr.length; i++) {
+        let row = table.insertRow();
+        let j = 0;
+        for (let item in arr[i]) {
+            let cell = row.insertCell(j);
+            cell.innerText = arr[i][item];
+            j++;
+        }
+    }
+    div.append(table);
+    return div;
 }
 
-div.append(table);
-document.body.prepend(div);
-}
-genTable(goods);
+let goodsTable = genTable(goods);
+let articleTable = genTable(articles);
+
+document.body.append(goodsTable);
+document.body.append(articleTable);
