@@ -1,0 +1,31 @@
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.box {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: lightslategray;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.lose {
+  background-color: red;
+}
+
+
+.win {
+  background-color: green;
+}

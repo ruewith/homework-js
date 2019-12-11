@@ -58,6 +58,7 @@ function genTable(arr) {
     let table = document.createElement("table");
     table.border = 1;
     table.cellPadding = 10;
+    table.style.margin = "30px auto";
     let caption = table.createCaption();
     caption.style = "font-size: 24px";
     caption.innerText = "Заголовок таблицы";
@@ -94,9 +95,64 @@ function genTable(arr) {
 genTable(goods);
 
 //Задача №2
+function genPrize(n) {
+    let container = document.createElement("div");
+    container.classList.add("container");
+    container.style.width = 220 * n + "px";
+    container.style.height = 120 * n + "px";
+
+    let shot = document.createElement("div");
+    shot.style.textAlign = "center";
+    let counter = 3;
+    shot.textContent = `Попыток осталось: ${counter}`;
+
+    let counterPresent = 0;
+
+    let arr = [];
+    for (let i = 0; i < Math.floor((n * n) / 7); i++) {
+        arr[i] = Math.floor(Math.random() * (n * n));
+    }
+
+    for (i = 1; i <= n * n; i++) {
+        let box = document.createElement("div");
+        box.classList.add("box");
+        if (arr.includes(i)) {
+            box.classList.add("prise");
+        } else {
+            box.classList.add("empty");
+        }
+        box.addEventListener("click", boxOpen);
+
+        function boxOpen() {
+            if (counter > 0) {
+                if (this.classList.contains("prise")) {
+                    box.classList.add("win");
+                    box.innerText = "Приз!";
+                    counterPresent++;
+                } else {
+                    box.classList.add("lose");
+                    box.innerText = "Пусто!";
+                }
+                counter--;
+                shot.textContent = `Осталось попыток: ${counter}`;
+            }
+            if (counter === 0) {
+                shot.textContent = `Ваши попытки закончились.`;
+            }
+        }
+        container.append(box);
+    }
+
+    document.body.append(container);
+    document.body.append(shot);
+}
+
+genPrize(3);
+
 //Задача №3
 let form = document.forms.testForm;
 form.checkbox.addEventListener("click", inputAccess);
+
 function inputAccess() {
     form.text.disabled = !form.checkbox.checked;
 }
