@@ -1,5 +1,4 @@
-let articles = [
-    {
+let articles = [{
         id: 1,
         title: "JS",
         text: "Статья про JS",
@@ -25,8 +24,7 @@ let articles = [
     }
 ];
 
-let goods = [
-    {
+let goods = [{
         title: "Пианино",
         price: 3000,
         count: 25
@@ -103,7 +101,7 @@ function genPrize(n) {
 
     let shot = document.createElement("div");
     shot.style.textAlign = "center";
-    let counter = 3;
+    let counter = n;
     shot.textContent = `Попыток осталось: ${counter}`;
 
     let counterPresent = 0;
@@ -147,12 +145,71 @@ function genPrize(n) {
     document.body.append(shot);
 }
 
-genPrize(3);
+genPrize(5);
 
 //Задача №3
-let form = document.forms.testForm;
-form.checkbox.addEventListener("click", inputAccess);
+let checkForm = document.forms.checkForm;
+checkForm.checkbox.addEventListener("click", inputAccess);
 
 function inputAccess() {
-    form.text.disabled = !form.checkbox.checked;
+    checkForm.text.disabled = !checkForm.checkbox.checked;
 }
+
+
+//Задача №4
+let form = document.forms.verification;
+let password = form.elements.password;
+let login = form.elements.login;
+login.addEventListener("focus", focusOnElem);
+password.addEventListener("focus", focusOnElem);
+
+function focusOnElem() {
+    this.nextElementSibling.classList.add("error");
+}
+
+login.addEventListener("blur", focusOutLogin);
+password.addEventListener("blur", focusOutPassword);
+
+function focusOutLogin() {
+    if (this.value.length < 3 || this.value.length > 10) {
+        this.nextElementSibling.classList.add("error");
+    } else {
+        this.nextElementSibling.classList.remove("error");
+        this.nextElementSibling.classList.add("success");
+    }
+}
+
+function focusOutPassword() {
+    if (this.value.length < 6) {
+        this.nextElementSibling.classList.add("error");
+    } else {
+        this.nextElementSibling.classList.remove("error");
+        this.nextElementSibling.classList.add("success");
+    }
+}
+form.addEventListener("submit", takeForm);
+
+function takeForm(event) {
+    event.preventDefault();
+    console.log("отправка формы");
+    console.log(this.elements.login.value);
+    let formData = new FormData(this);
+    console.log(formData);
+    console.log(formData.getAll("login"));
+    console.log(formData.getAll("password"));
+}
+let clean = document.getElementsByClassName("info-block");
+form.addEventListener("reset", outForm);
+
+function outForm(event) {
+    event.preventDefault();
+    login.value = null;
+    password.value = null;
+    this.nextElementSibling.classList.add("error");
+    this.nextElementSibling.classList.remove("success");
+    for (elem of clean) {
+        elem.classList.add("error");
+        elem.classList.remove("success");
+    }
+}
+//Задача №4

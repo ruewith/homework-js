@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <title>JS Homework7</title>
 </head>
 
 <body>
-    <form action="#" method="post" name="testForm">
+    <form action="#" method="post" name="checkForm">
         <fieldset name="checkbox_fieldset">
             <legend>Checkbox</legend>
             <div>
@@ -20,6 +20,30 @@
                 </label>
                 <input type="text" name="text" disabled />
             </div>
+        </fieldset>
+    </form>
+
+    <form name="verification">
+        <fieldset>
+            <legend>Verifcation</legend>
+            <div>
+                <label for="login">Введите логин</label>
+                <input name="login" id="login" type="text">
+                <span class="info-block">
+                    Логин должен содержать минимум от 4 до 10 символов
+                </span>
+            </div>
+            <br>
+            <div>
+                <label for="password">Введите пароль</label>
+                <input name="password" id="password" type="password">
+                <span class="info-block">
+                    Пароль должен содержать минимум 6 символов
+                </span>
+            </div>
+            <br>
+            <input type="submit" value="Отправить">
+            <input type="reset" value="Очистить">
         </fieldset>
     </form>
     <script src="js/main.js"></script>

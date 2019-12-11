@@ -29,3 +29,36 @@ body {
 .win {
   background-color: green;
 }
+
+legend {
+  font-weight: bold;
+}
+
+fieldset {
+  border: 1px solid darkgrey;
+  margin: 30px 0;
+  border-radius: 5px;
+}
+
+input {
+  outline: none;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: inherit;
+}
+
+input:focus {
+  border: 1px solid orangered;
+}
+
+input:disabled {
+  border: 1px solid lightgrey;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: darkgreen;
+}
